@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ViewModel="using:EventMaker.ViewModel"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="EventMaker.View.CreateEventPage"
     mc:Ignorable="d">
 
@@ -27,6 +28,11 @@
             <AppBarButton.DataContext>
                 <ViewModel:EventViewModel/>
             </AppBarButton.DataContext>
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="EventMaker.View.EventPage"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
             <AppBarButton x:Name="appBarButton1" Height="100" Icon="Accept" Label="appbarbutton" Width="100"/>
         </AppBarButton>
 
