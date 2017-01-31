@@ -1,0 +1,34 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EventMaker.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:EventMaker.ViewModel"
+    x:Class="EventMaker.View.CreateEventPage"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.DataContext>
+            <ViewModel:EventViewModel/>
+        </Grid.DataContext>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="58,88,0,0" TextWrapping="Wrap" Text="{Binding Id, Mode=TwoWay}" VerticalAlignment="Top" Height="29" Width="226" PlaceholderText="ID"/>
+        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Margin="58,125,0,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Top" Height="29" Width="226" PlaceholderText="Name" TextChanged="textBox_Copy_TextChanged"/>
+        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Margin="58,162,0,0" TextWrapping="Wrap" Text="{Binding Description, Mode=TwoWay}" VerticalAlignment="Top" Height="29" Width="226" PlaceholderText="Description"/>
+        <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Margin="58,199,0,0" TextWrapping="Wrap" Text="{Binding Place, Mode=TwoWay}" VerticalAlignment="Top" Height="29" Width="226" PlaceholderText="Place"/>
+        <DatePicker HorizontalAlignment="Left" Margin="58,258,0,0" VerticalAlignment="Top" Date="{Binding Date}"/>
+        <TimePicker HorizontalAlignment="Left" Margin="58,314,0,0" VerticalAlignment="Top" Time="{Binding Time}"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="58,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+            <Run Text="Create New Event"/>
+            <LineBreak/>
+            <Run/>
+        </TextBlock>
+        <AppBarButton x:Name="appBarButton" HorizontalAlignment="Left" Icon="Accept" Label="appbarbutton" Margin="394,74,0,0" VerticalAlignment="Top" Command="{Binding CreateEventCommand}">
+            <AppBarButton.DataContext>
+                <ViewModel:EventViewModel/>
+            </AppBarButton.DataContext>
+            <AppBarButton x:Name="appBarButton1" Height="100" Icon="Accept" Label="appbarbutton" Width="100"/>
+        </AppBarButton>
+
+    </Grid>
+</Page>

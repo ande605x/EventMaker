@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EventMaker.Model
 {
-    class EventCatalogSingleton
+    public class EventCatalogSingleton
     {
         private static EventCatalogSingleton instance = new EventCatalogSingleton();
         
@@ -16,20 +16,22 @@ namespace EventMaker.Model
             get { return instance; }
         } 
 
-        public ObservableCollection<Event> Events { get; set; }
+        public ObservableCollection<Event> EventListe { get; set; }
 
         public EventCatalogSingleton()
         {
             /* event 1*/
-            Events.Add(new Event() { Id = 1, Name = "Metalica", Description = "SortKoncert", Place = "SortScene"});
+            EventListe.Add(new Event() { Id = 1, Name = "Metalica", Description = "SortKoncert", Place = "SortScene"});
 
             /* event 2*/
-            Events.Add(new Event() { Id = 2, Name = "Bruno", Description = "BrunKoncert", Place = "BrunScene" });
+            EventListe.Add(new Event() { Id = 2, Name = "Bruno", Description = "BrunKoncert", Place = "BrunScene" });
         }
 
         public void Add(Event newEvent)
         {
             // metode til at lave addere til liste
+        
+            EventListe.Add(newEvent);
         }
 
 
