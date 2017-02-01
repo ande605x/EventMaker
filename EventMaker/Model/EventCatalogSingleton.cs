@@ -20,6 +20,11 @@ namespace EventMaker.Model
 
         public EventCatalogSingleton()
         {
+            EventListe = new ObservableCollection<Event>();
+
+            //Persistency.PersistencyService.LoadEventsFromJsonAsync();
+
+
             /* event 1*/
             EventListe.Add(new Event() { Id = 1, Name = "Metalica", Description = "SortKoncert", Place = "SortScene"});
 
@@ -32,6 +37,7 @@ namespace EventMaker.Model
             // metode til at lave addere til liste
         
             EventListe.Add(newEvent);
+            Persistency.PersistencyService.SaveEventAsJsonAsync(EventListe);
         }
 
 

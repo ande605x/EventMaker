@@ -27,7 +27,7 @@ namespace EventMaker.Persistency
 
             Task<string> jsonTaskText = DeSerializeEventsFileAsync(filename);
 
-            List<Event> newList = JsonConvert.DeserializeObject<List<Event>>("hej");//jsonTaskText);
+            List<Event> newList = JsonConvert.DeserializeObject<List<Event>>(jsonTaskText.ToString());
             foreach (var i in newList)
             {
                 newList.Add(i);

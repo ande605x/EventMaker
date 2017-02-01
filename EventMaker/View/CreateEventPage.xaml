@@ -35,6 +35,8 @@
             </Interactivity:Interaction.Behaviors>
             <AppBarButton x:Name="appBarButton1" Height="100" Icon="Accept" Label="appbarbutton" Width="100"/>
         </AppBarButton>
+        <Button x:Name="Add" Content="Add" HorizontalAlignment="Left" Margin="194,428,0,0" VerticalAlignment="Top" Command="{Binding CreateEventCommand}"/>
+        <Button x:Name="button1" Content="Remove" HorizontalAlignment="Left" Margin="330,428,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

@@ -8,6 +8,8 @@
         
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
         
+    xmlns:Model="using:EventMaker.Model"
+        
     x:Class="EventMaker.View.EventPage"
     mc:Ignorable="d">
 
@@ -16,7 +18,11 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="522" VerticalAlignment="Top" Width="336" Margin="82,57,0,0" DataContext="{Binding MyEvent.Events}"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="522" VerticalAlignment="Top" Width="336" Margin="82,57,0,0" ItemsSource="{Binding EventListe}">
+            <ListView.DataContext>
+                <Model:EventCatalogSingleton/>
+            </ListView.DataContext>
+        </ListView>
         <AppBarButton x:Name="appBarButton" HorizontalAlignment="Left" Icon="Accept" Label="appbarbutton" VerticalAlignment="Top" Margin="668,0,0,0" Command="{Binding Mode=OneWay}">
             <AppBarButton.DataContext>
                 <local:CreateEventPage/>
