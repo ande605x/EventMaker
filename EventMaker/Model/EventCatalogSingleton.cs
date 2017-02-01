@@ -38,7 +38,8 @@ namespace EventMaker.Model
         
             EventListe.Add(newEvent);
             
-            //Persistency.PersistencyService.SaveEventAsJsonAsync(EventListe);
+            
+            Persistency.PersistencyService.SaveEventAsJsonAsync(EventListe);
         }
 
         public void Remove(Event choseEvent)

@@ -39,6 +39,7 @@ namespace EventMaker.Persistency
 
         private static async void SerializeEventsFileAsync(string eventsString, string filename)
         {
+           localfolder = ApplicationData.Current.LocalFolder;
            StorageFile file = await localfolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
            await FileIO.WriteTextAsync(file, eventsString);
         }

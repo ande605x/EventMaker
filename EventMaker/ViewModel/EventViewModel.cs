@@ -16,8 +16,7 @@ namespace EventMaker.ViewModel
         //private EventHandler Eh;
         private EventMaker.Handler.EventHandler eventHandler { get; set; }
 
-        public Model.EventCatalogSingleton EListe { get; set; }
-
+        
 
         public EventViewModel()
         {
@@ -27,15 +26,18 @@ namespace EventMaker.ViewModel
             _date = new DateTimeOffset(dt.Year, dt.Month, dt.Day, 0, 0, 0, 0, new TimeSpan());
             _time = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
 
-            EListe = new Model.EventCatalogSingleton();
+
+            myEventCatalogSingleton = Model.EventCatalogSingleton.Instance;
+
+
 
             CreateEventCommand = new RelayCommand(eventHandler.CreateEvent);
             DeleteEventCommand = new RelayCommand(eventHandler.DeleteEvent);
         }
 
-        private Model.EventCatalogSingleton myevent = Model.EventCatalogSingleton.Instance;
+        private Model.EventCatalogSingleton myEventCatalogSingleton;
        
-        public Model.EventCatalogSingleton MyEvent { get {return myevent; } }
+        public Model.EventCatalogSingleton MyEventCatalogSingleton { get {return myEventCatalogSingleton; } }
 
 
         public int Id { get; set; }
