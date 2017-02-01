@@ -32,11 +32,18 @@ namespace EventMaker.Model
             EventListe.Add(new Event() { Id = 2, Name = "Bruno", Description = "BrunKoncert", Place = "BrunScene" });
         }
 
-        public void Add(Event newEvent)
+        public void AddEvent(Event newEvent)
         {
             // metode til at lave addere til liste
         
             EventListe.Add(newEvent);
+            
+            //Persistency.PersistencyService.SaveEventAsJsonAsync(EventListe);
+        }
+
+        public void Remove(Event choseEvent)
+        {
+            EventListe.Remove(choseEvent);
             Persistency.PersistencyService.SaveEventAsJsonAsync(EventListe);
         }
 

@@ -29,10 +29,17 @@ namespace EventMaker.Handler
             tempEvent.Place = evm.Place;
             tempEvent.DateTime = Converter.DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(evm.Date,evm.Time);
 
-            Model.EventCatalogSingleton.Instance.EventListe.Add(tempEvent);
+            Model.EventCatalogSingleton.Instance.AddEvent(tempEvent);
+            
+            
 
             // Model.EventCatalogSingleton.Instance.EventListe.Add(new Model.Event() { });
 
+        }
+
+        public void DeleteEvent()
+        {
+            Model.EventCatalogSingleton.Instance.Remove(evm.SelectedEvent);
         }
     }
 }
