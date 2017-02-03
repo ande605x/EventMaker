@@ -31,7 +31,7 @@ namespace EventMaker.ViewModel
             myEventCatalogSingleton = Model.EventCatalogSingleton.Instance;
 
             CreateEventCommand = new RelayCommand(eventHandler.CreateEvent);
-            DeleteEventCommand = new RelayCommand(eventHandler.DeleteEvent);
+            DeleteEventCommand = new RelayCommand(eventHandler.DeleteEvent, TomListeCheck);
         }
 
         private Model.EventCatalogSingleton myEventCatalogSingleton;
@@ -80,12 +80,9 @@ namespace EventMaker.ViewModel
 
         public bool TomListeCheck()
         {
-            if (Model.EventCatalogSingleton.Instance.EventListe.Count() == 0)
-            {
-                return false;
-            }
-            else return true;
-            
+                return Model.EventCatalogSingleton.Instance.EventListe.Count() > 0;
+        }
+         
             
             
             
@@ -100,4 +97,5 @@ namespace EventMaker.ViewModel
 
 
     }
-}
+
+

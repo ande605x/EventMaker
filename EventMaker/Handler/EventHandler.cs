@@ -40,7 +40,7 @@ namespace EventMaker.Handler
         public void DeleteEvent()
         {
             Model.EventCatalogSingleton.Instance.Remove(evm.SelectedEvent);
-            evm.TomListeCheck();
+            
         }
     }
 }

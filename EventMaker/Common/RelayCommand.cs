@@ -4,16 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-
+using Windows.UI.Xaml;
 
 namespace EventMaker
 {
     public class RelayCommand : ICommand
     {
+
+        private DispatcherTimer CanExecutetimer;
+        public event EventHandler CanExecuteChanged;
+
         public RelayCommand(Action execute) : this(execute, null)
         {
-
         }
+
+        private void CanExecutetimer_Tick(object sender, object e)
+        {
+            this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+
         private Action methodToExecute = null;
         private Func<bool> methodToDecectCanExecute = null;
 
@@ -21,6 +30,11 @@ namespace EventMaker
         {
             this.methodToExecute = methodToExecute;
             this.methodToDecectCanExecute = methodToDetectCanExecute;
+
+            this.CanExecutetimer = new DispatcherTimer();
+            this.CanExecutetimer.Tick += CanExecutetimer_Tick;
+            this.CanExecutetimer.Interval = new TimeSpan(0, 0, 1);
+            this.CanExecutetimer.Start();
         }
         public void Execute(object parameter)
         {
@@ -37,6 +51,5 @@ namespace EventMaker
                 return this.methodToDecectCanExecute();
             }
         }
-        public event EventHandler CanExecuteChanged;
     }
 }
