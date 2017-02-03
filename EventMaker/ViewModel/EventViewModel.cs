@@ -29,11 +29,8 @@ namespace EventMaker.ViewModel
 
             myEventCatalogSingleton = Model.EventCatalogSingleton.Instance;
 
-
-
             CreateEventCommand = new RelayCommand(eventHandler.CreateEvent);
             DeleteEventCommand = new RelayCommand(eventHandler.DeleteEvent);
-            //Persistency.PersistencyService.LoadEventsFromJsonAsync();
         }
 
         private Model.EventCatalogSingleton myEventCatalogSingleton;
