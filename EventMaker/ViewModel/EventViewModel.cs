@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.ComponentModel;
+using Windows.UI.Xaml.Controls;
 
 namespace EventMaker.ViewModel
 {
@@ -70,6 +71,31 @@ namespace EventMaker.ViewModel
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+
+
+        /*Test til opgave 6*/
+
+
+        public bool TomListeCheck()
+        {
+            if (Model.EventCatalogSingleton.Instance.EventListe.Count() == 0)
+            {
+                return false;
+            }
+            else return true;
+            
+            
+            
+            
+            //if (Model.EventCatalogSingleton.Instance.EventListe == null)
+            //{
+
+            //    return false;
+            //}
+            //else
+            //    return true;
         }
 
 
