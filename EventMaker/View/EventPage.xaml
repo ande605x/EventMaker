@@ -20,8 +20,39 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ListView x:Name="listView" HorizontalAlignment="Left" Height="522" VerticalAlignment="Top" Width="733" Margin="82,57,0,0" ItemsSource="{Binding MyEventCatalogSingleton.EventListe}" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">
-            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="2*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row="0" x:Name="Txt1" Text="Name:" />
+                        <TextBlock Grid.Column="1" Grid.Row="0" Width="20" />
+                        <TextBlock Grid.Column="2" Grid.Row="0" x:Name="Txt2" Text="{Binding Path=Name}" />
+
+                        <TextBlock Grid.Column="0" Grid.Row="1" x:Name="Txt3" Text="Place:" />
+                        <TextBlock Grid.Column="1" Grid.Row="1" Width="20" />
+                        <TextBlock Grid.Column="2" Grid.Row="1" x:Name="Txt4" Text="{Binding Path=Place}" />
+
+                        <TextBlock Grid.Column="0" Grid.Row="2" x:Name="Txt5" Text="Description:" />
+                        <TextBlock Grid.Column="1" Grid.Row="2" Width="20" />
+                        <TextBlock Grid.Column="2" Grid.Row="2" x:Name="Txt6" Text="{Binding Path=Description}" />
+
+                        <TextBlock Grid.Column="0" Grid.Row="3" Name="Space" Text="" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
+        
         <AppBarButton x:Name="appBarButton" HorizontalAlignment="Left" Icon="Accept" Label="Forside" VerticalAlignment="Top" Margin="1000,0,0,0" Command="{Binding Mode=OneWay}">
             <AppBarButton.DataContext>
                 <local:CreateEventPage/>
